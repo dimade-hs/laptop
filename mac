@@ -107,7 +107,7 @@ brew update --force # https://github.com/Homebrew/brew/issues/1151
 brew bundle --file=- <<EOF
 tap "thoughtbot/formulae"
 tap "homebrew/services"
-tap "heroku/brew"
+
 
 # Unix
 brew "universal-ctags/universal-ctags/universal-ctags", args: ["HEAD"]
@@ -121,13 +121,6 @@ brew "vim"
 brew "watchman"
 brew "zsh"
 
-# Heroku
-brew "heroku/brew/heroku"
-brew "parity"
-
-# GitHub
-brew "gh"
-
 # Image manipulation
 brew "imagemagick"
 
@@ -135,16 +128,19 @@ brew "imagemagick"
 brew "libyaml" # should come after openssl
 brew "coreutils"
 brew "yarn"
+brew "google-cloud-sdk"
+brew "rbenv"
+brew "nvm"
+brew "shared-mime-info"
+
 cask "gpg-suite-no-mail"
 
 # Databases
-brew "postgres", restart_service: :changed
-brew "redis", restart_service: :changed
+brew "postgres"
+
 EOF
 
-fancy_echo "Update heroku binary ..."
-brew unlink heroku
-brew link --force heroku
+#TODO: Determing if we want to use asdf?
 
 fancy_echo "Configuring asdf version manager ..."
 if [ ! -d "$HOME/.asdf" ]; then
