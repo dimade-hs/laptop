@@ -122,11 +122,11 @@ brew "imagemagick"
 brew "libyaml" # should come after openssl
 brew "coreutils"
 brew "yarn"
-brew "google-cloud-sdk"
 brew "rbenv"
 brew "nvm"
 brew "shared-mime-info"
 brew "qpdf"
+cask "google-cloud-sdk"
 
 
 # Databases
