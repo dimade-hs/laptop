@@ -105,7 +105,6 @@ fi
 fancy_echo "Updating Homebrew formulae ..."
 brew update --force # https://github.com/Homebrew/brew/issues/1151
 brew bundle --file=- <<EOF
-tap "thoughtbot/formulae"
 tap "homebrew/services"
 
 
@@ -129,14 +128,14 @@ brew "nvm"
 brew "shared-mime-info"
 brew "qpdf"
 
-cask "gpg-suite-no-mail"
 
 # Databases
 brew "postgres"
 
 EOF
 
-"$(echo -e export PATH="$HOME/.rbenv/bin:$PATH")"
+append_to_zshrc 'export PATH="$HOME/.rbenv/bin:$PATH"'
+append_to_zshrc 'eval "$(rbenv init -)"'
 
 
 if [ -f "$HOME/.laptop.local" ]; then
